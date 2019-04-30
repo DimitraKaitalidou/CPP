@@ -5,7 +5,7 @@ using namespace std;
 
 class Node
 {
-	// Access specifier 
+   // Access specifier 
     public:
 
 	// Node information
@@ -15,7 +15,7 @@ class Node
 
 class Structure
 {
-	// Access specifier 
+    // Access specifier 
     public:
 
 	// Structure variables
@@ -52,7 +52,7 @@ class Structure
 
 class Stack : public Structure
 {
-	// Access specifier 
+    // Access specifier 
     public:
 
     // Stack functions
@@ -68,7 +68,7 @@ class Stack : public Structure
 
 class Queue : public Structure
 {
-	// Access specifier 
+    // Access specifier 
     public:
 
 	// Queue variables
