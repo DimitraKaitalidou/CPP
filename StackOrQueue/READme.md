@@ -1,6 +1,6 @@
 # Stack or Queue
 
-This is a C++ implementation of two data structures, i.e., a stack and a queue. At first, the program asks if a stack or a queue should be created. Then, the program asks for action selection which allows the management of the data structure that was created through keyboard inputs.
+This is an implementation of two data structures, i.e., a stack and a queue, in both C++ and Java. At first, the program asks if a stack or a queue should be created. Then, the program asks for action selection which allows the management of the data structure that was created through keyboard inputs.
 
 ## Implementation details
  
