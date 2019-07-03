@@ -127,7 +127,7 @@ int main()
 
 		while (1)
 		{
-			cout << "Select action for the Queue: 0 -> Exit 1 -> Push 2 -> Pop 3 -> Results \n";
+			cout << "Select action for the Stack: 0 -> Exit 1 -> Push 2 -> Pop 3 -> Results \n";
 			cin >> action;
 
 			switch (action)
