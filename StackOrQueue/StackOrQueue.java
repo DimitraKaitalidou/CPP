@@ -17,7 +17,7 @@ class Structure
 
 	// Structure functions
 	void remove()
-    {
+	{
 		if (isEmpty() == 1) 
 		{
 			System.out.println("It is empty");
