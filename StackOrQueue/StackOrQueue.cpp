@@ -148,7 +148,6 @@ int main()
 				   break;
 			   default:
 				   cout << "Wrong input! \n";
-				   break;
 			}
 		}
 	}
@@ -180,7 +179,6 @@ int main()
 				   break;
 			    default:
 				   cout << "Wrong input! \n";
-				   break;
 			}
 		}
 	}
