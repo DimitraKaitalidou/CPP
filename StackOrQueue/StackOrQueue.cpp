@@ -5,92 +5,91 @@
 
 using namespace std;
 
-class Node
-{
+class Node{
+
    // Access specifier 
    public:
 
-      // Node information
-      int node_data;
-      Node *next_node;
+   // Node information
+   int node_data;
+   Node *next_node;
 };
 
-class Structure
-{
+class Structure{
+
    // Access specifier 
    public:
 
-      // Structure variables
-      Node *top = NULL;
+   // Structure variables
+   Node *top = NULL;
 
-      // Structure functions
-      void remove()
+   // Structure functions
+   void remove(){
+
+      if (isEmpty())
          {
-
-            if (isEmpty())
-               {
-                  cout << "It is empty. \n";
-                  return;
-               }
-
-            Node *temp_node;
-            temp_node = top -> next_node;
-            delete top;
-            top = temp_node;
-         }
-
-      int isEmpty()
-         {
-            if (top == NULL) return 1;
-            else return 0;
-         }
-
-      void getTop()
-         {
-            if (isEmpty()) cout << "It is empty. \n";
-            else cout << "The top is: " << top -> node_data << "\n";
-         }
-};
-
-class Stack : public Structure
-{
-   // Access specifier 
-   public:
-
-      // Stack functions
-      void push(int d)
-         {
-            Node *new_node = new Node;
-            new_node -> node_data = d;
-            new_node -> next_node = top;
-            top = new_node;
+            cout << "It is empty. \n";
             return;
          }
+
+      Node *temp_node;
+      temp_node = top->next_node;
+      delete top;
+      top = temp_node;
+   }
+
+   int isEmpty(){
+
+      if (top == NULL) return 1;
+      else return 0;
+   }
+
+   void getTop(){
+
+      if (isEmpty()) cout << "It is empty. \n";
+      else cout << "The top is: " << top->node_data << "\n";
+   }
 };
 
-class Queue : public Structure
-{
+class Stack : public Structure{
+
    // Access specifier 
    public:
 
-      // Queue variables
-      Node *tail;
+   // Stack functions
+   void push(int d){
 
-      // Queue functions
-      void insert(int d)
-         {
-            Node *new_node = new Node;
-            new_node -> node_data = d;
-            new_node -> next_node = NULL;
-            if (tail != NULL) tail -> next_node = new_node;
-            tail = new_node;
-            if (top == NULL)  top = tail;
-            return;
-         }
+      Node *new_node = new Node;
+      new_node->node_data = d;
+      new_node->next_node = top;
+      top = new_node;
+      return;
+   }
+};
+
+class Queue : public Structure{
+
+   // Access specifier 
+   public:
+
+   // Queue variables
+   Node *tail;
+
+   // Queue functions
+   void insert(int d){
+
+      Node *new_node = new Node;
+      new_node->node_data = d;
+      new_node->next_node = NULL;
+      if (tail != NULL) tail->next_node = new_node;
+      tail = new_node;
+      if (top == NULL)  top = tail;
+      return;
+   }
 };
 
 int main(){
-	
+
    // Declare variables
    char action;
    int input;
@@ -143,13 +142,13 @@ int main(){
                      case '2':
                         S1.remove();
                         break;
-                      case '3':
+                     case '3':
                         S1.getTop();
                         break;
                      default:
                         cout << "Wrong input! \n";
                   }
-         }
+            }
       }
    else
       {
@@ -180,7 +179,7 @@ int main(){
                      default:
                         cout << "Wrong input! \n";
                   }
-             }
+            }
       }
 
    system("pause");
