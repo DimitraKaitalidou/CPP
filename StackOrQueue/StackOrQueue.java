@@ -1,6 +1,5 @@
 // Copyright 2019, Dimitra S. Kaitalidou, All rights reserved
 
-import java.io.*;
 import java.util.Scanner;
 
 class Node
