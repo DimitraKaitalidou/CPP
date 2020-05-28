@@ -77,7 +77,7 @@ public class TicTacToe{
                   System.out.println("Wrong input!");
                   System.out.println("Player " + player + " select a valid box, i.e., select a number from 0 to 8.");
                   box = scanner.nextInt();
-            
+
                   // The game is stopped
                   if(box == 9)
                      {
@@ -106,7 +106,7 @@ public class TicTacToe{
                         System.out.println("Wrong input!");
                         System.out.println("Player " + player + " select a valid box, i.e., select a number from 0 to 8.");
                         box = scanner.nextInt();
-               
+
                         // The game is stopped
                         if(box == 9)
                            {
