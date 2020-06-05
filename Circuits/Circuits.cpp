@@ -9,10 +9,12 @@ class Circuit{
    // Access specifier
    protected:
    float r;
+   int num_res;
    float v;
 
    // Access specifier
    public:
+   Circuit(){};
    Circuit(int x){v = x;}
    ~Circuit(){}
    void intensity();
@@ -37,10 +39,10 @@ float Circuit::power(){
 class Serial : public Circuit{
 
    float *serial_r;
-   int num_res;
 
    // Access specifier
    public:
+   Serial(){};
    Serial(int x);
    ~Serial(){}
    float total_serial_resistance();
@@ -52,12 +54,8 @@ Serial::Serial(int x) : Circuit(x){
    cout << "Give the number of resistances in the serial circuit: ";
    cin >> num_res;
 
-   serial_r = (float*)malloc(num_res * sizeof(float));
-   if(serial_r == NULL)
-      {
-         cout << "Allocation failure!/n";
-         return;
-      }
+   // Dynamic memory allocation
+   serial_r = new float(num_res);
 
    for(int i = 0; i < num_res; i++)
       {
@@ -82,10 +80,10 @@ float Serial::total_serial_resistance(){
 class Parallel : public Circuit{
 
    float *parallel_r;
-   int num_par;
 
    // Access specifier
    public:
+   Parallel(){};
    Parallel(int x);
    ~Parallel(){}
    float total_parallel_resistance();
@@ -95,16 +93,12 @@ Parallel::Parallel(int x) : Circuit(x){
 
    v = x;
    cout << "Give the number of resistances in the parallel circuit: ";
-   cin >> num_par;
+   cin >> num_res;
 
-   parallel_r = (float*)malloc(num_par * sizeof(float));
-   if(parallel_r == NULL)
-      {
-         cout << "Allocation failure!\n";
-         return;
-      }
+   // Dynamic memory allocation
+   parallel_r = new float(num_res);
 
-   for(int i = 0; i < num_par; i++)
+   for(int i = 0; i < num_res; i++)
       {
          cout << "Give the resistance in the parallel circuit: ";
          cin >> parallel_r[i];
@@ -115,7 +109,7 @@ float Parallel::total_parallel_resistance(){
 
    float total_res = 0;
 
-   for(int i = 0; i < num_par; i++) total_res += 1 / parallel_r[i];
+   for(int i = 0; i < num_res; i++) total_res += 1 / parallel_r[i];
 
    r = 1/ total_res;
    return r;
@@ -170,8 +164,6 @@ void minimum_power(Serial *s, Parallel *p, int num_s, int num_p){
 int main(){
 
    // Initialize variables
-   Serial *S;
-   Parallel *P;
    int num_circuits_serial = 0;
    int num_circuits_parallel = 0;
    int voltage;
@@ -181,20 +173,15 @@ int main(){
    cout << "Give the number of serial circuits: ";
    cin >> num_circuits_serial;
 
-   S = (Serial*)malloc(num_circuits_serial * sizeof(Serial));
-   if (S == NULL)
-   {
-       cout << "Allocation failure/n";
-       return 0;
-   }
+   // Dynamic memory allocation
+   Serial *s = new Serial[num_circuits_serial];
 
    for (int i = 0; i < num_circuits_serial; i++)
    {
        cout << "Serial circuit " << i << ".\n";
        cout << "Give the voltage of the serial circuit: ";
        cin >> voltage;
-       Serial s(voltage);
-       S[i] = s;
+       s[i] = Serial(voltage);
    }
 
    // Create the parallel circuits
@@ -202,23 +189,20 @@ int main(){
    cout << "Give the number of parallel  circuits: ";
    cin >> num_circuits_parallel;
 
-   P = (Parallel*)malloc(num_circuits_parallel * sizeof(Parallel));
-   if(P == NULL) 
-      {
-         cout << "Allocation failure/n";
-         return 0;
-      }
+   // Dynamic memory allocation
+   Parallel *p = new Parallel[num_circuits_parallel];
 
    for(int j = 0; j < num_circuits_parallel; j++)
       {
          cout << "Parallel circuit " << j << ".\n";
          cout << "Give the voltage of the parallel circuit: ";
          cin >> voltage;
-         Parallel p(voltage);
-         P[j] = p;
+         p[j] = Parallel(voltage);
       }
 
-   // Find minimum power and return
-   minimum_power(S, P, num_circuits_serial, num_circuits_parallel);
+   // Find minimum power, free memory and return
+   minimum_power(s, p, num_circuits_serial, num_circuits_parallel);
+   delete [] s;
+   delete [] p;
    return 0;
 }
