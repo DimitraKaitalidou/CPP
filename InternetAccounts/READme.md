@@ -1,4 +1,4 @@
-# InternetAccounts
+# Internet Accounts
 
 ## Problem statement
 A network service company needs to manage the internet connections of the customers, i.e., calculate the cost according to the downloaded MBs and print the bill statements.
