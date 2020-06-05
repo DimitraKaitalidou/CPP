@@ -23,12 +23,12 @@ Most frequently, the components of the electric circuits are connected in series
 This C++ program defines the circuit class, which implements the functions of a circuit consisting of an ohmic resistance to which a voltage is applied. The class defines a constructor which takes as input the value of the voltage and informs the corresponding variable of the class. The class also specifies the appropriate functions for calculating the current flowing through the resistance and the power consumed by the circuit.
 
 The program also defines:
-1. The serial class as public, produced by the circuit class. The class defines a table of resistances connected in series and has a constructor that allocates dynamic memory for that table and reads the values of its elements. The class also has the appropriate functions for calculating the total resistance presented by the circuit, which should be set as the value of the resistance defined by its basic class
-2. The parallel class as public, produced by the circuit class. The class defines a table of resistances connected in parallel and has a constructor which allocates dynamic memory for that table and reads the values of its elements. The class also has the appropriate functions for calculating the total resistance presented by the circuit, which should be set as the value of the resistance defined by its basic class
+1. The serial class as public, produced by the circuit class. The class defines a table of resistances connected in series and has a constructor that allocates dynamic memory (new operator) for that table and reads the values of its elements. The class also has the appropriate functions for calculating the total resistance presented by the circuit, which should be set as the value of the resistance defined by its basic class
+2. The parallel class as public, produced by the circuit class. The class defines a table of resistances connected in parallel and has a constructor which allocates dynamic memory (new operator) for that table and reads the values of its elements. The class also has the appropriate functions for calculating the total resistance presented by the circuit, which should be set as the value of the resistance defined by its basic class
 
 The minimum_power function is also defined, which receives a table of serial class objects and a table of parallel class objects and finds which of the serial class objects and which of the parallel class objects consumes the least power.
 
-The main function of the script defines dynamically a table of serial type objects and a table of parallel type objects, reads a value for the voltage and calls the minimum_power function. For these two objects, the current flowing through them is printed.
+The main function of the script defines dynamically a table of serial type objects and a table of parallel type objects (new operator), reads a value for the voltage and calls the minimum_power function. For these two objects, the current flowing through them is printed.
 
 ## References
 1. https://en.wikipedia.org/wiki/Ohm%27s_law
