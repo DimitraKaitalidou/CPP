@@ -13,6 +13,7 @@ class Train{
    
    // Access specifier
    public:
+   Train(){};
    Train(int id);
    ~Train(){};
    float train_show();
@@ -26,6 +27,7 @@ class Truck{
 
    // Access specifier
    public:
+   Truck(){};
    Truck(int id);
    ~Truck(){};
    float truck_show();
@@ -102,8 +104,6 @@ void total_shipping_cost(float cost1, float cost2);
 int main(){
 
    // Initialize variables
-   Train *A;
-   Truck *B;
    int train_nr_packages = 0;
    int truck_nr_packages = 0;
    float train_sum = 0;
@@ -114,33 +114,24 @@ int main(){
    cout << "Give number of containers that travel with truck: ";
    cin >> truck_nr_packages;
 
-   A = (Train*)malloc(train_nr_packages * sizeof(Train));
-   B = (Truck*)malloc(truck_nr_packages * sizeof(Truck));
-   if (A == NULL) 
-      {
-         cout << "Allocation failure!\n";
-         return 0;
-      }
-   if (B == NULL) 
-      {
-         cout << "Allocation failure!\n";
-         return 0;
-      }
+   // Dynamic memory allocation
+   Train *ta = new Train[train_nr_packages];
+   Truck *tu = new Truck[truck_nr_packages];
 
    for (int i = 0; i < train_nr_packages; i++)
       {
-         Train A(i);
-         train_sum += A.train_show();
+         ta[i] = Train(i);
+         train_sum += ta[i].train_show();
       }
    for (int j = 0; j < truck_nr_packages; j++)
       {
-         Truck B(j);
-         truck_sum += B.truck_show();
+         tu[j] = Truck(j);
+         truck_sum += tu[j].truck_show();
       }
 
    // Free memory and return
-   free(A);
-   free(B);
+   delete [] ta;
+   delete [] tu;
    total_shipping_cost(train_sum, truck_sum);
    return 0;
 }
