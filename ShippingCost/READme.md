@@ -10,5 +10,5 @@ This C++ program defines, depending on the shipping mode of each container, an o
 
 The program also specifies the total_shipping_cost function which processes all the items of the containers and returns the total cost for their shipping.
 
-The main function reads the number of containers to be shipped by train, the number of containers to be shipped by trucks and allocates dynamic memory (malloc) to register the corresponding items. Then, the program prints the form with the start, the destination and the shipping cost for each container and calls the total_shipping_cost function to calculate and print the total shipping cost for all the containers.
+The main function reads the number of containers to be shipped by train, the number of containers to be shipped by trucks and allocates dynamic memory (new operator) to register the corresponding items. Then, the program prints the form with the start, the destination and the shipping cost for each container and calls the total_shipping_cost function to calculate and print the total shipping cost for all the containers.
 
