@@ -1,7 +1,23 @@
 # Linear Equations
 
 ## Problem statement
-To solve a system of linear equations M * X = C, where M is the square matrix, X is the vector of unknowns and C is the vector of constant terms, an iterative algorithm can be applied which is implemented by the relation R = (C - M * X + D * X) / D (Jacobi method), where M is the matrix of coefficients of the unknowns of the system, C is the vector of constant terms and D is the vector whose components are the diagonal elements of the matrix M. Applying the above expression gives a better approach R for the solution vector than that of an initial approach of the solution with the X vector. The process is repeated by setting X = R until the sum Σ|R<sub>i</sub> - X<sub>i</sub>|, where R<sub>i</sub>, X<sub>i</sub> are the corresponding components of the vectors R and X, becomes less than a small number e denoting the desired accuracy of the result.
+To solve a system of linear equations:
+
+> ***M*** * ***X*** = ***C***
+
+, where ***M*** is the square matrix, ***X*** is the vector of unknowns and ***C*** is the vector of constant terms, an iterative algorithm can be applied which is implemented by the relation:
+
+> ***R*** = (***C*** - ***M*** * ***X*** + ***D*** * ***X***) / ***D*** [<sup>(1)</sup>](https://en.wikipedia.org/wiki/Jacobi_method)
+
+, where ***M*** is the matrix of coefficients of the unknowns of the system, ***C*** is the vector of constant terms and ***D*** is the vector whose components are the diagonal elements of the matrix ***M***. Applying the above expression gives a better approach ***R*** for the solution vector than that of an initial approach of the solution with the ***X*** vector. The process is repeated by setting:
+
+> ***X*** = ***R*** 
+
+, until the sum:
+
+> ***Σ***|***R***<sub>i</sub> - ***X***<sub>i</sub>|
+
+, where ***R***<sub>i</sub>, ***X***<sub>i</sub> are the corresponding components of the vectors ***R*** and ***X***, becomes less than a small number ***e*** denoting the desired accuracy of the result.
 
 ## Code description
 This C++ program defines the Matrix class, which implements a square matrix. The class has a constructor which accepts as arguments the dimensions of the matrix, allocates dynamic memory for its data and reads values for these data. In the class, the following is defined:
