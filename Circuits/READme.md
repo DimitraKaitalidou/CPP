@@ -3,15 +3,11 @@
 ## Problem statement
 An electrical circuit is a closed path that can conduct electric current. The elements involved in the circuit are called electrical components, e.g., sources, resistances, inductances, capacities, etc. According to Ohm’s law:
 
-<p align="center"> 
- <img src="http://www.sciweavers.org/download/Tex2Img_1591169680.jpg">,
-</p>
+> ***I*** = ***V***/***R***
 
 where ***I*** is the current (amperes), ***V*** is the voltage (volts) and ***R*** is the resistance (ohms) and also:
 
-<p align="center"> 
- <img src="http://www.sciweavers.org/download/Tex2Img_1591170237.jpg">, 
-</p>
+> ***P*** = ***V***<sup>2</sup>/***R***
 
 where ***P*** is the power (watts).
 
