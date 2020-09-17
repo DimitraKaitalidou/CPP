@@ -156,7 +156,6 @@ int main(){
 
    // Initialize variables
    int N = 0;
-   Factory *F;
    string s, w;
    float sun_energy, sun_main_cost, wind_energy, wind_main_cost, daily_energy, daily_cost;
    float sun_hours, sun_oil_hours, wind_hours, wind_oil_hours;
