@@ -9,43 +9,42 @@ class productA{
 
    // Access specifier
    public:
-   float material_cost_per_prodA, cost_per_prodA, profit_per_prodA;
+   float material_cost_per_prod, cost_per_prod, profit_per_prod;
    productA();
 };
 
 productA::productA(){
 
    cout << "Give the cost of materials for products of type A: ";
-   cin >> material_cost_per_prodA;
+   cin >> material_cost_per_prod;
    cout << "Give the cost of processing per product of type A: ";
-   cin >> cost_per_prodA;
+   cin >> cost_per_prod;
    cout << "Give the percentage of profit per product of type A in range [0.1, 1): ";
-   cin >> profit_per_prodA;
+   cin >> profit_per_prod;
 }
 
-class productB{
+class productB : public productA{
 
    // Access specifier
    public:
-   float material_cost_per_prodB, cost_per_prodB, profit_per_prodB;
-   float construction_hours, worker_hours, payment_per_prodB;
+   float construction_hours, worker_hours, payment_per_prod;
    productB();
 };
 
 productB::productB(){
 
    cout << "Give the cost of materials for products of type B: ";
-   cin >> material_cost_per_prodB;
+   cin >> material_cost_per_prod;
    cout << "Give the cost of processing per product of type B: ";
-   cin >> cost_per_prodB;
+   cin >> cost_per_prod;
    cout << "Give the percentage of profit per product of type B in range [0.1, 1): ";
-   cin >> profit_per_prodB;
+   cin >> profit_per_prod;
    cout << "Give the minimum number of hours for the construction of a product of type B: ";
    cin >> construction_hours;
    cout << "Give the number of hours for the construction of a product of type B from 1 worker: ";
    cin >> worker_hours;
    cout << "Give the worker payment per product of type B: ";
-   cin >> payment_per_prodB;
+   cin >> payment_per_prod;
  }
 
 void calculate_cost_and_profit(int numA, productA *prA, int numB, productB *prB){
@@ -64,8 +63,8 @@ void calculate_cost_and_profit(int numA, productA *prA, int numB, productB *prB)
       {
          cout << "Give the number of products for the " << i << " category: ";
          cin >> num_per_catA;
-         value += (prA[i].material_cost_per_prodA + prA[i].cost_per_prodA + (prA[i].material_cost_per_prodA + prA[i].cost_per_prodA) * prA[i].profit_per_prodA) * num_per_catA;
-         cost += (prA[i].material_cost_per_prodA + prA[i].cost_per_prodA) * num_per_catA;
+         value += (prA[i].material_cost_per_prod + prA[i].cost_per_prod + (prA[i].material_cost_per_prod + prA[i].cost_per_prod) * prA[i].profit_per_prod) * num_per_catA;
+         cost += (prA[i].material_cost_per_prod + prA[i].cost_per_prod) * num_per_catA;
       }
 
    cout << "-------------------\n";
@@ -79,11 +78,11 @@ void calculate_cost_and_profit(int numA, productA *prA, int numB, productB *prB)
          cout << "Give the number of products for the " << j << " category: ";
          cin >> num_per_catB;
 
-         if (prB[j].construction_hours >= prB[j].worker_hours) worker_cost = prB[j].payment_per_prodB;
-         else worker_cost = prB[j].payment_per_prodB * ceil(prB[j].worker_hours / prB[j].construction_hours);
+         if (prB[j].construction_hours >= prB[j].worker_hours) worker_cost = prB[j].payment_per_prod;
+         else worker_cost = prB[j].payment_per_prod * ceil(prB[j].worker_hours / prB[j].construction_hours);
 
-         value += (prB[j].material_cost_per_prodB + prB[j].cost_per_prodB + worker_cost + (prB[j].material_cost_per_prodB + prB[j].cost_per_prodB + worker_cost) * prB[j].profit_per_prodB) * num_per_catB;
-         cost += (prB[j].material_cost_per_prodB + prB[j].cost_per_prodB + worker_cost) * num_per_catB;
+         value += (prB[j].material_cost_per_prod + prB[j].cost_per_prod + worker_cost + (prB[j].material_cost_per_prod + prB[j].cost_per_prod + worker_cost) * prB[j].profit_per_prod) * num_per_catB;
+         cost += (prB[j].material_cost_per_prod + prB[j].cost_per_prod + worker_cost) * num_per_catB;
       }
 
    profit = value - cost;
