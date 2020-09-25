@@ -1,0 +1,15 @@
+# Neural Network
+
+## Problem statement
+A simple neural network consists of a number of neurons that are connected to each other by synapses, each of which has a certain weight. For each neuron a state is defined which can have a value of 1 or -1. The value of the state of the neuron is calculated by summing the products of the state values of the neurons connected to it by the weight of the corresponding synapses. If this sum is greater than a threshold Θ, defined for the neuron, the value of its state is defined as 1, otherwise the state is defined as -1. The network works by setting an initial value for the state of each neuron and redefining the state of the neurons with the above procedure. The redefinition is repeated until no change in state occurs for any of the network neurons. Then, the network is in a stable state.
+
+## Code description
+This C++ program defines the Neuron class that implements a neuron. For the objects of the class an extractor is defined which reads the identities of the neurons connected to the neuron that the object implements and the weights of the respective synapses. Also, the extractor reads the activation threshold and the initial value for the status of the neuron. As a member of the Neuron class an overload of the new operator is defined that reserves the memory needed to register an array of objects of the Neuron class. For each object in the array, the overload reads the number of neurons connected to the neuron that the object implements, and allocates the necessary memory to record the identities of these neurons and the weights of the synapses. Finally, the overload uses the extractor to enter the corresponding elements for each of the objects of the array.
+
+The program also defines the Network class that implements a neural network. It defines an overload of the new operator as a member of the class that reserves the memory needed to register an object in the class. The overload allocates the memory needed to register the elements of the neurons of the network. Also, an inserter is defined as a member of the class which prints the state of the network (stable or unstable) and the state of the neurons that it is composed of.
+
+Finally, the function calculate_state () is defined in the Network class which implements the operation of the network. The function redefines the state of the network neurons until a stable state is reached. Because there is a case where the network does not converge to a stable state, the function reads a maximum number of iterations for which the states of the network neurons will be redefined. If this number is exhausted and a stable state is not reached, the network status is declared unstable.
+
+The main function of the program reads the number of neurons that the network consists of and allocates dynamic memory for an object of class Network using the overload of the new operator.
+
+The program contains the appropriate delete operator overloads to free up heavily allocated memory.
